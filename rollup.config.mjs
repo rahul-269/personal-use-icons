@@ -26,7 +26,10 @@ export default {
       declaration: true, // Enable declaration file generation
       declarationDir: "dist", // Output the declaration files to `dist/`
     }),
-    svgr(), // Handle SVG imports as React components
+    svgr({
+      icon: true, // Makes SVGs inherit `size`
+      expandProps: "end", // Moves props to the end for easier overriding
+    }), // Handle SVG imports as React components
   ],
   external: ["react"], // Treat React as an external dependency
 };

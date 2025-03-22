@@ -33,10 +33,12 @@ export default {
     }), // Handle SVG imports as React components
     babel({
       babelHelpers: "bundled",
-      presets: ["@babel/preset-react"], // ✅ Ensures JSX is correctly transformed
+      presets: [
+        ["@babel/preset-react", { runtime: "automatic" }], // ✅ Ensures automatic JSX runtime
+      ], // ✅ Ensures JSX is correctly transformed
       extensions: [".ts", ".tsx"],
       exclude: "node_modules/**",
     }),
   ],
-  external: ["react"], // Treat React as an external dependency
+  external: ["react", "react/jsx-runtime"], // Treat React as an external dependency
 };

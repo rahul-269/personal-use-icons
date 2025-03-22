@@ -7,9 +7,16 @@
     "moduleResolution": "node", // Resolve modules like Node.js
     "module": "ESNext", // Output as ES modules
     "target": "ESNext", // Compile to the latest ECMAScript version
-    "strict": true // Enable all strict type-checking options
+    "strict": true, // Enable all strict type-checking options
+    "jsx": "react-jsx",
+    "baseUrl": "./src", // Set base directory for non-relative imports
+    "paths": {
+      "icons/*": ["icons/*"] // Resolve `icons/*` to the `src/icons/*` folder
+    }
   },
   "include": [
-    "src/**/*" // Include all files in the `src` folder
+    "src/**/*", // Include all files in the `src` folder
+    "src/types.d.ts",
+    "scripts/generate-index.ts"
   ]
 }

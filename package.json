@@ -1,13 +1,16 @@
 {
   "name": "personal-use-icons",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A collection of personal use React/Next.js icons",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "sideEffects": false,
+  "type": "module",
   "scripts": {
-    "build": "rollup -c",
+    "create-icon-components": "node --loader ts-node/esm scripts/generate-components.ts",
+    "generate": "node --loader ts-node/esm scripts/generate-index.ts",
+    "build": "npm run generate && rollup -c",
     "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -39,11 +42,16 @@
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-typescript": "^12.1.2",
     "@svgr/rollup": "^8.1.0",
+    "@types/node": "^22.13.11",
     "@types/react": "^19.0.10",
     "rollup": "^4.35.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5.8.2"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "glob": "^11.0.1"
   }
 }

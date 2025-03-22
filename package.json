@@ -1,6 +1,6 @@
 {
   "name": "personal-use-icons",
-  "version": "1.0.2",
+  "version": "1.0.2.1",
   "description": "A collection of personal use React/Next.js icons",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -38,6 +38,8 @@
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.26.3",
+    "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^28.0.3",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-typescript": "^12.1.2",

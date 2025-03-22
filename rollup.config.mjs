@@ -2,6 +2,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import svgr from "@svgr/rollup";
+import babel from "@rollup/plugin-babel";
 
 export default {
   input: "src/icons/index.ts", // Entry point of your TypeScript icons
@@ -30,6 +31,12 @@ export default {
       icon: true, // Makes SVGs inherit `size`
       expandProps: "end", // Moves props to the end for easier overriding
     }), // Handle SVG imports as React components
+    babel({
+      babelHelpers: "bundled",
+      presets: ["@babel/preset-react"], // ✅ Ensures JSX is correctly transformed
+      extensions: [".ts", ".tsx"],
+      exclude: "node_modules/**",
+    }),
   ],
   external: ["react"], // Treat React as an external dependency
 };

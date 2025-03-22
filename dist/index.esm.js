@@ -745,8 +745,15 @@ var SvgPerson1 = function SvgPerson1(props) {
   })));
 };
 
-const Person1 = ({ size = 24, ...props }) => {
-    return jsxRuntimeExports.jsx(SvgPerson1, { width: size, height: size, ...props });
+const Person1 = ({
+  size = 24,
+  ...props
+}) => {
+  return jsxRuntimeExports.jsx(SvgPerson1, {
+    width: size,
+    height: size,
+    ...props
+  });
 };
 
 var _path$1;
@@ -768,8 +775,15 @@ var SvgHouse1 = function SvgHouse1(props) {
   })));
 };
 
-const House1 = ({ size = 24, ...props }) => {
-    return jsxRuntimeExports.jsx(SvgHouse1, { width: size, height: size, ...props });
+const House1 = ({
+  size = 24,
+  ...props
+}) => {
+  return jsxRuntimeExports.jsx(SvgHouse1, {
+    width: size,
+    height: size,
+    ...props
+  });
 };
 
 var _circle;
@@ -789,8 +803,15 @@ var SvgCircle1 = function SvgCircle1(props) {
   })));
 };
 
-const Circle1 = ({ size = 24, ...props }) => {
-    return jsxRuntimeExports.jsx(SvgCircle1, { width: size, height: size, ...props });
+const Circle1 = ({
+  size = 24,
+  ...props
+}) => {
+  return jsxRuntimeExports.jsx(SvgCircle1, {
+    width: size,
+    height: size,
+    ...props
+  });
 };
 
 var _path;
@@ -812,8 +833,15 @@ var SvgBell1 = function SvgBell1(props) {
   })));
 };
 
-const Bell1 = ({ size = 24, ...props }) => {
-    return jsxRuntimeExports.jsx(SvgBell1, { width: size, height: size, ...props });
+const Bell1 = ({
+  size = 24,
+  ...props
+}) => {
+  return jsxRuntimeExports.jsx(SvgBell1, {
+    width: size,
+    height: size,
+    ...props
+  });
 };
 
 export { Bell1, Circle1, House1, Person1 };

@@ -1,10 +1,10 @@
 {
   "name": "personal-use-icons",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A collection of personal use React/Next.js icons",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
-  "types": "dist/icons/index.d.ts",
+  "types": "dist/index.d.ts",
   "sideEffects": false,
   "type": "module",
   "scripts": {

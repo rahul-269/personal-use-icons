@@ -1,6 +1,6 @@
 {
   "name": "personal-use-icons",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A collection of personal use React/Next.js icons",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -42,7 +42,9 @@
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^28.0.3",
     "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^12.1.2",
+    "@rollup/plugin-url": "^8.0.2",
     "@svgr/rollup": "^8.1.0",
     "@types/node": "^22.13.11",
     "@types/react": "^19.0.10",
@@ -54,6 +56,6 @@
     "access": "public"
   },
   "dependencies": {
-    "glob": "^11.0.1"
+    "glob": "^10.4.5"
   }
 }

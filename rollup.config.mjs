@@ -48,47 +48,42 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import svgr from "@svgr/rollup";
 import babel from "@rollup/plugin-babel";
-import url from "@rollup/plugin-url"; // ✅ Add this to copy assets
-import terser from "@rollup/plugin-terser";
-// Optional for minification
 
 export default {
-  input: "src/icons/index.ts", // Entry point of your TypeScript icons
+  input: "src/icons/index.ts", // Entry point for your icons
   output: [
     {
-      file: "dist/index.cjs.js", // CommonJS output
+      file: "dist/index.cjs.js",
       format: "cjs",
-      sourcemap: true, // Include sourcemap for debugging
+      sourcemap: true,
     },
     {
-      file: "dist/index.esm.js", // ES Module output
+      file: "dist/index.esm.js",
       format: "esm",
-      sourcemap: true, // Include sourcemap for debugging
+      sourcemap: true,
     },
   ],
   plugins: [
+    svgr({
+      icon: true, // Makes SVGs inherit `size`
+      expandProps: "end",
+    }), // ✅ Move SVGR FIRST, before TypeScript and Babel
+
     resolve(), // Resolve node modules
     commonjs(), // Convert CommonJS to ES6
+
     typescript({
       tsconfig: "./tsconfig.json",
-      declaration: true, // Enable declaration file generation
-      declarationDir: "dist", // Output the declaration files to `dist/`
+      declaration: true,
+      declarationDir: "dist",
     }),
-    svgr({
-      icon: true,
-      expandProps: "end",
-    }), // Convert SVGs to React components
-    url({
-      include: ["**/*.svg"], // ✅ Ensure SVGs are treated as assets
-      limit: 0, // Force SVGs to be copied instead of inlining
-    }),
+
     babel({
       babelHelpers: "bundled",
       presets: [["@babel/preset-react", { runtime: "automatic" }]],
       extensions: [".ts", ".tsx"],
       exclude: "node_modules/**",
     }),
-    terser(), // Optional: Minify the output
   ],
-  external: ["react", "react/jsx-runtime"], // Treat React as external dependency
+  external: ["react", "react/jsx-runtime"], // ✅ Ensures React isn't bundled
 };

@@ -48,6 +48,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import svgr from "@svgr/rollup";
 import babel from "@rollup/plugin-babel";
+import copy from "rollup-plugin-copy";
 
 export default {
   input: "src/icons/index.ts", // Entry point for your icons
@@ -67,15 +68,16 @@ export default {
     svgr({
       icon: true, // Makes SVGs inherit `size`
       expandProps: "end",
-    }), // ✅ Move SVGR FIRST, before TypeScript and Babel
+    }),
 
-    resolve(), // Resolve node modules
-    commonjs(), // Convert CommonJS to ES6
+    resolve(),
+    commonjs(),
 
     typescript({
       tsconfig: "./tsconfig.json",
       declaration: true,
       declarationDir: "dist",
+      rootDir: "src",
     }),
 
     babel({
@@ -84,6 +86,17 @@ export default {
       extensions: [".ts", ".tsx"],
       exclude: "node_modules/**",
     }),
+
+    // Now the copy plugin is at the bottom
+    copy({
+      targets: [
+        {
+          src: "src/types.d.ts", // Source location of your types.d.ts
+          dest: "dist", // Destination folder for the declaration file
+        },
+        { src: "src/icons/svgs/*", dest: "dist/icons/svgs" }, // Copy SVG files
+      ],
+    }),
   ],
-  external: ["react", "react/jsx-runtime"], // ✅ Ensures React isn't bundled
+  external: ["react", "react/jsx-runtime"],
 };

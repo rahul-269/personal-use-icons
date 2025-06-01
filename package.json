@@ -1,7 +1,7 @@
 {
   "name": "personal-use-icons",
-  "version": "1.0.9",
-  "description": "A collection of personal use React/Next.js icons",
+  "version": "1.1.0",
+  "description": "A lightweight icon library for my personal use, and now maybe yours. This package contains a collection of React icons that you can use in your Next.js or React projects.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
